@@ -1,7 +1,7 @@
 # mac_notes_export_tool
 This is a tool helps me to export mac notes to md file.  
 
-1. Create new AppleScript file named ``. The code is as follows, I use javascript ;)
+1. Create new AppleScript file named `export_notes.scpt`. The code is as follows, I use javascript ;)
 ```javascript
 // set things up 
 var app = Application.currentApplication(); 
