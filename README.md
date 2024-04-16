@@ -52,3 +52,8 @@ nbu()
     open /Users/***/mysoftware/note_backup/data
 }
 ```
+
+3. use following command to export notes and open target directory.
+```bash
+nbu
+```
