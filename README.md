@@ -18,7 +18,7 @@ for(var i=0;i<folders.length;i++){
 		    var idArray = targetNotes[j].id().split("/");
 			var id = idArray[idArray.length-1];
 			//console.log("id:"+id)
-			var filename = '/Users/xixiaoyong/mysoftware/note_backup/data/'+targetNotes[j].name().split(' ')[0].replaceAll('-','')+'_'+id+'.txt';
+			var filename = '/Users/***/mysoftware/note_backup/data/'+targetNotes[j].name().split(' ')[0].replaceAll('-','')+'_'+id+'.txt';
 			var finalContent = targetNotes[j].body().replaceAll("<div><h1>","# ").replaceAll("</h1></div>","\n")
 			.replaceAll("<div>","").replaceAll("<br></div>","\n").replaceAll("</div>","\n").replaceAll("<br>","\n")
 			var file = app.openForAccess(Path(filename), { writePermission: true });
@@ -36,9 +36,9 @@ After exporting note to md file the encodeing is gbk, use `iconv` to convert gbk
 ```bash
 nbu()
 {
-    osascript /Users/xixiaoyong/mysoftware/note_backup/export_notes.scpt
+    osascript /Users/***/mysoftware/note_backup/export_notes.scpt
     count=0
-    for file in /Users/xixiaoyong/mysoftware/note_backup/data/*
+    for file in /Users/***/mysoftware/note_backup/data/*
     do
         if [[ $file == *.txt ]]; then
 	    echo "convert:$file"
@@ -49,14 +49,14 @@ nbu()
         fi
     done
     echo "total notes:$count"
-    # open /Users/xixiaoyong/mysoftware/note_backup/data
+    # open /Users/***/mysoftware/note_backup/data
     year=$(date +%Y)
     month=$(date +%m)
-    mkdir -p /Users/xixiaoyong/code/wiki/99-日志/"$year/$month"
-    # open /Users/xixiaoyong/code/wiki/99-日志/"$year/$month"
-    cp /Users/xixiaoyong/mysoftware/note_backup/data/*.md /Users/xixiaoyong/code/wiki/99-日志/"$year/$month"
-    find /Users/xixiaoyong/mysoftware/note_backup/data -type f -delete
-    cd /Users/xixiaoyong/code/wiki/99-日志/"$year/$month"
+    mkdir -p /Users/***/code/wiki/99-日志/"$year/$month"
+    # open /Users/***/code/wiki/99-日志/"$year/$month"
+    cp /Users/***/mysoftware/note_backup/data/*.md /Users/***/code/wiki/99-日志/"$year/$month"
+    find /Users/***/mysoftware/note_backup/data -type f -delete
+    cd /Users/***/code/wiki/99-日志/"$year/$month"
 }
 ```
 
