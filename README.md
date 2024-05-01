@@ -18,9 +18,9 @@ for(var i=0;i<folders.length;i++){
 		    var idArray = targetNotes[j].id().split("/");
 			var id = idArray[idArray.length-1];
 			//console.log("id:"+id)
-			var filename = '/Users/***/mysoftware/note_backup/data/'+targetNotes[j].name().split(' ')[0].replaceAll('-','')+'_'+id+'.txt';
+			var filename = '/Users/yong/software/note_backup/data/'+targetNotes[j].name().split(' ')[0].replaceAll('-','')+'_'+id+'.txt';
 			var finalContent = targetNotes[j].body().replaceAll("<div><h1>","# ").replaceAll("</h1></div>","\n")
-			.replaceAll("<div>","").replaceAll("<br></div>","\n").replaceAll("</div>","\n").replaceAll("<br>","\n")
+			.replaceAll("<div>","").replaceAll("<br></div>","\n").replaceAll("</div>","\n").replaceAll("<br>","\n").replaceAll('\u2026',"...")
 			var file = app.openForAccess(Path(filename), { writePermission: true });
     		app.setEof(file, { to: 0 });
     		app.write(finalContent, {to: file});
@@ -28,6 +28,7 @@ for(var i=0;i<folders.length;i++){
 		}		
 	}
 }
+
 ```
 
 After exporting note to md file the encodeing is gbk, use `iconv` to convert gbk to utf8.
